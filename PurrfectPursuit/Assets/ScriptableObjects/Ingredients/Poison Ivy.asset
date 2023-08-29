@@ -15,4 +15,6 @@ MonoBehaviour:
   ingredientName: Poison Ivy
   ingredientImage: {fileID: 21300000, guid: 577f46d46f531c745b758e7a3a45b11c, type: 3}
   styleAssetIndex: 4
-  ingredientObject: {fileID: 0}
+  ingredientObject: {fileID: 2940762066709814789, guid: e7b0122b9d6cb174db830a321e7a2240,
+    type: 3}
+  ingredientObjectRotation: {x: 0, y: 0, z: 90}

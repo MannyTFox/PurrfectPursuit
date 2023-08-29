@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a8f926b00c56143a9231a27e00138f, type: 3}
   m_Name: Blue Herb
   m_EditorClassIdentifier: 
-  ingredientName: 
+  ingredientName: Blue Herb
   ingredientImage: {fileID: 21300000, guid: b4dfa9282e86f00429efa324fe5a060f, type: 3}
   styleAssetIndex: 0
   ingredientObject: {fileID: 0}
