@@ -5,8 +5,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ScriptableObject", menuName = "ScriptableObjects/Ingredient")]
 public class Ingredient : ScriptableObject
 {
-    public string ingredientName;
+    [SerializeField] string ingredientName;
     public Sprite ingredientImage;
     public int styleAssetIndex;
-    public GameObject ingredientObject;
+    [SerializeField] GameObject ingredientObject;
+    [SerializeField] Vector3 ingredientObjectRotation;
+
+    public string GetIngredientName()
+    {
+        return ingredientName;
+    }
+
+    public GameObject GetIngredientObject()
+    {
+        return ingredientObject;
+    }
+
+    public Vector3 GetIngredientRotation()
+    {
+        return ingredientObjectRotation;
+    }
 }

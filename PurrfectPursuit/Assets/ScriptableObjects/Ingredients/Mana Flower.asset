@@ -15,4 +15,5 @@ MonoBehaviour:
   ingredientName: Mana Flower
   ingredientImage: {fileID: 21300000, guid: 5e66963bb8c8ab949b88cbf84c022463, type: 3}
   styleAssetIndex: 5
-  ingredientObject: {fileID: 0}
+  ingredientObject: {fileID: 1059231616434358648, guid: 3b7a407724ede734fb5d3bb391268f0f,
+    type: 3}
