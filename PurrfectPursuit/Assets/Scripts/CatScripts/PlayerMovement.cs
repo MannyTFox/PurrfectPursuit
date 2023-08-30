@@ -39,8 +39,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         locked = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     // Update is called once per frame
