@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 4, z: -6.34}
+  m_FollowOffset: {x: 0, y: 1.5983, z: -5.139901}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -10091,7 +10091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 4, z: -6.34}
+  m_FollowOffset: {x: 0, y: 1.5983, z: -5.139901}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -29107,7 +29107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 4, z: -6.34}
+  m_FollowOffset: {x: 0, y: 1.5983, z: -5.139901}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -32724,7 +32724,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30996
+  m_Name: pb_Mesh27782
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
