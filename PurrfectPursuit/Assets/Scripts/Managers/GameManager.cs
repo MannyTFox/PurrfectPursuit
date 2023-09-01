@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
     public PlayerMovement playerMov;
     public CinemachineBrain playerCameraBrain;
 
+    [Header("Witch References")]
+    public Cauldron cauldronScript;
+
     [Header("Tutorial References")]
     public GameObject startTutorialRef;
 
@@ -166,8 +169,12 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator WasIngredientCorrect(bool lever, Ingredient ing)
     {
-        // Spawn Ingredient on top of Cauldron
-        
+        // Spawn Ingredient Object on top of Cauldron
+        if (ing.GetIngredientObject() != null)
+        {
+            print("trigger");
+            cauldronScript.SpawnIngredient(ing.GetIngredientObject());
+        }
 
         // Wait a little bit for the ingredient to fall into cauldron
         yield return new WaitForSeconds(2);
@@ -178,6 +185,7 @@ public class GameManager : MonoBehaviour
         if (lever)
         {
             // Good particle effect plays
+            cauldronScript.CorrectIngredientBehaviour();
 
             // Ingredient is removed, potion progress & time reward
             witchAnimator.SetTrigger("throw");
@@ -189,6 +197,10 @@ public class GameManager : MonoBehaviour
         else
         {
             // Bad particle effect plays
+            cauldronScript.WrongIngredientBehaviour();
+
+            // Witch animation
+            witchAnimator.SetTrigger("throw");
 
             // Wrong ingredient penalty
             time -= 10;
