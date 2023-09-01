@@ -55,11 +55,7 @@ public class PlayerMovement : MonoBehaviour
         if (locked == false)
         {
             MovePlayer();
-
-            if (horizontalInput > 0 || horizontalInput < 0 || verticalInput > 0)
-            {
-                RotationOfPlayer();
-            }
+            RotationOfPlayer();
         }
 
         // Handle Drag
@@ -83,10 +79,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         #region Old Movement
-        /*if (!locked)
-        {
-            //rotate orientation
-            Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+            /*//rotate orientation
+            Vector3 viewDir = this.gameObject.transform.position - new Vector3(Camera.main.transform.position.x,
+                                                                       this.gameObject.transform.position.y,
+                                                                       Camera.main.transform.position.z);
             orientation.forward = viewDir.normalized;
 
             //rotate player object
@@ -104,13 +100,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 // Apply break to the rigidbody
                 rb.velocity = new Vector3(0, 0, 0);
-            }
-
-        }
-        else
-        {
-            rb.velocity = new Vector3(0, 0, 0);
-        }*/
+            }*/
         #endregion
     }
 
@@ -144,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
+        // Old
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         if (grounded)
@@ -158,19 +149,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void RotationOfPlayer()
     {
-        // Getting cam direction
-        Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        move = Camera.main.transform.TransformDirection(move);
-        move = Vector3.ProjectOnPlane(move, Vector3.up);
+        // Camera Direction
+        Vector3 viewDir = this.gameObject.transform.position - new Vector3(Camera.main.transform.position.x,
+                                                                   this.gameObject.transform.position.y,
+                                                                   Camera.main.transform.position.z);
 
-        Vector3 camDir = Camera.main.transform.forward;
-        camDir = Vector3.ProjectOnPlane(camDir, Vector3.up);
+        // Orientation always looking towards camera
+        orientation.forward = viewDir.normalized;
 
-        // Rotate orientation
-        orientation.forward = camDir;
+        // Get direction to move towards
+        Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        // Player object also rotates accordinly
-        playerObj.forward = camDir;
+        // If player is not pressing anything
+        if (inputDir != Vector3.zero)
+        {
+            // Player object looks towards direction
+            playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+        }
     }
 
     public void SpeedControl()
