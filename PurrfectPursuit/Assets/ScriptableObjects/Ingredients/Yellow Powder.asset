@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Yellow Powder
   m_EditorClassIdentifier: 
   ingredientName: Yellow Powder
-  ingredientImage: {fileID: 0}
+  ingredientImage: {fileID: 21300000, guid: 1acc87f6a997eaa4c8c5476e06fea04b, type: 3}
   styleAssetIndex: 0
   ingredientObject: {fileID: 0}
+  ingredientObjectRotation: {x: 0, y: 0, z: 0}

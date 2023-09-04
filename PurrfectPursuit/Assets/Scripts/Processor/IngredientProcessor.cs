@@ -150,6 +150,7 @@ public class IngredientProcessor : MonoBehaviour
                 // Return text to normal after player collects item, waiting for another job
                 statusText.color = Color.green;
                 statusText.text = "!";
+                statusDisplayFillImage.fillAmount = 0;
             }
         }
     }

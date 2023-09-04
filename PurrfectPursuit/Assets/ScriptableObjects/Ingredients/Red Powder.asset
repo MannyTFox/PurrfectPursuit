@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Red Powder
   m_EditorClassIdentifier: 
   ingredientName: Red Powder
-  ingredientImage: {fileID: 0}
+  ingredientImage: {fileID: 21300000, guid: 2a38b308a910e80448c19122743185d8, type: 3}
   styleAssetIndex: 0
   ingredientObject: {fileID: 0}
+  ingredientObjectRotation: {x: 0, y: 0, z: 0}

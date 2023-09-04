@@ -6,7 +6,6 @@ public class IngredientObject : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
 
-    [SerializeField] float gravityVel = 2;
     bool gravityOn = false;
 
     // Start is called before the first frame update
@@ -18,16 +17,14 @@ public class IngredientObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    private void FixedUpdate()
+    {
         if (gravityOn)
         {
-            rb.velocity = new Vector3(rb.velocity.x, gravityVel * Time.deltaTime, rb.velocity.z);
-            gravityVel += 2f;
-
-            // Max speed
-            if(gravityVel > 80)
-            {
-                gravityVel = 50;
-            }
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * Time.deltaTime, rb.velocity.z);
         }
     }
 

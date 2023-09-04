@@ -6,6 +6,7 @@ TagManager:
   tags:
   - IngredientPickup
   - IngredientObject
+  - Mouse_Hole
   layers:
   - Default
   - TransparentFX
