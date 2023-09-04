@@ -7,8 +7,8 @@ public class Cauldron : MonoBehaviour
     [SerializeField] Transform ingredientDropSpot;
 
     [Header("Particles")]
-    [SerializeField] ParticleSystem correctIngredientParticle;
-    [SerializeField] ParticleSystem wrongIngredientParticle;
+    [SerializeField] ParticleGroup correctIngredientParticleGroup;
+    [SerializeField] ParticleGroup wrongIngredientParticleGroup;
 
 
     public void SpawnIngredient(GameObject ingredient)
@@ -21,17 +21,17 @@ public class Cauldron : MonoBehaviour
 
     public void CorrectIngredientBehaviour()
     {
-        if (correctIngredientParticle != null)
+        if (correctIngredientParticleGroup != null)
         {
-            correctIngredientParticle.Play();
+            correctIngredientParticleGroup.PlayParticleGroup();
         }
     }
 
     public void WrongIngredientBehaviour()
     {
-        if (wrongIngredientParticle != null)
+        if (wrongIngredientParticleGroup != null)
         {
-            wrongIngredientParticle.Play();
+            wrongIngredientParticleGroup.PlayParticleGroup();
         }
     }
 }

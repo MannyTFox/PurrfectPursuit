@@ -8,6 +8,8 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager gameManagerInstance;
+
     [Header("List of potions game can pick from")]
     public List<PotionRecipe> recipes = new List<PotionRecipe>();
 
@@ -52,6 +54,11 @@ public class GameManager : MonoBehaviour
 
     [Header("Tutorial References")]
     public GameObject startTutorialRef;
+
+    private void Awake()
+    {
+        gameManagerInstance = this.GetComponent<GameManager>();
+    }
 
     private void UpdateIngredientPanel()
     {
