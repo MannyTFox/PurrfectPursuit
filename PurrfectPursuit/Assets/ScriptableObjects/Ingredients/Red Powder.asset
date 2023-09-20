@@ -15,5 +15,10 @@ MonoBehaviour:
   ingredientName: Red Powder
   ingredientImage: {fileID: 21300000, guid: 2a38b308a910e80448c19122743185d8, type: 3}
   styleAssetIndex: 0
-  ingredientObject: {fileID: 0}
-  ingredientObjectRotation: {x: 0, y: 0, z: 0}
+  ingredientObject: {fileID: 1558275446749448485, guid: 461251e63c3a24146a9f7c7595d06083,
+    type: 3}
+  ingredientDroppedObject: {fileID: 2753113090900061419, guid: db1e1697a0a7c7b4ca2b7f19d5f3e5c2,
+    type: 3}
+  ingredientHologramObject: {fileID: 1645243959860263943, guid: 4c2d52cbdf915074fa1d24dd871fb52e,
+    type: 3}
+  ingredientObjectRotation: {x: 15, y: 0, z: 0}

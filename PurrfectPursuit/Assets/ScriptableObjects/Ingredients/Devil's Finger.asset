@@ -15,4 +15,10 @@ MonoBehaviour:
   ingredientName: Devil's Finger
   ingredientImage: {fileID: 21300000, guid: 35bee21fee574234a8a87f17fd111f71, type: 3}
   styleAssetIndex: 6
-  ingredientObject: {fileID: 0}
+  ingredientObject: {fileID: 3513850659054316877, guid: 0933c87b2abbdae4ba7bf3a25621ec71,
+    type: 3}
+  ingredientDroppedObject: {fileID: 4038927554103804276, guid: 3b69090ac3109d141ad773a205ac7325,
+    type: 3}
+  ingredientHologramObject: {fileID: 7726877295520462717, guid: 7c413607845ba6c4e95be4c079c00b60,
+    type: 3}
+  ingredientObjectRotation: {x: -42, y: 180, z: 0}

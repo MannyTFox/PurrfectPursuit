@@ -15,5 +15,10 @@ MonoBehaviour:
   ingredientName: Yellow Herb
   ingredientImage: {fileID: 21300000, guid: ddc75e9b3c437f64390319ab274a54cf, type: 3}
   styleAssetIndex: 1
-  ingredientObject: {fileID: 0}
-  ingredientObjectRotation: {x: 0, y: 0, z: 0}
+  ingredientObject: {fileID: 2175817229966368716, guid: 5de63cb539d82984b91212297bf40ee4,
+    type: 3}
+  ingredientDroppedObject: {fileID: 4317054630029588710, guid: bd13b8c57291a35418d5c8b3b0ff8e56,
+    type: 3}
+  ingredientHologramObject: {fileID: 2640570425011698901, guid: 25d1d7f87961070459e87c0ac33a9a1e,
+    type: 3}
+  ingredientObjectRotation: {x: 85, y: 180, z: 74}

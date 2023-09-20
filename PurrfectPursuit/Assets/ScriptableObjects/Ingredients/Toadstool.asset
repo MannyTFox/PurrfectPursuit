@@ -15,4 +15,10 @@ MonoBehaviour:
   ingredientName: Toadstool
   ingredientImage: {fileID: 21300000, guid: bf7b866a57e0a144ea3f64698a19359a, type: 3}
   styleAssetIndex: 2
-  ingredientObject: {fileID: 0}
+  ingredientObject: {fileID: 5203613400336993313, guid: 4cc1294b020b25f459bea3a9cde34b32,
+    type: 3}
+  ingredientDroppedObject: {fileID: 7471269353069235286, guid: ffd289950a3ad8048bcc5982fa6213b0,
+    type: 3}
+  ingredientHologramObject: {fileID: 2091300049853605665, guid: 4892b78c4c549284eaa6fbc2a42268f8,
+    type: 3}
+  ingredientObjectRotation: {x: 41.749, y: 1.201, z: -51.2}

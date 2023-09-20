@@ -15,4 +15,10 @@ MonoBehaviour:
   ingredientName: Blue Herb
   ingredientImage: {fileID: 21300000, guid: b4dfa9282e86f00429efa324fe5a060f, type: 3}
   styleAssetIndex: 0
-  ingredientObject: {fileID: 0}
+  ingredientObject: {fileID: 1966681513641842546, guid: 2ba7820c2c001d4408b211783f5e558f,
+    type: 3}
+  ingredientDroppedObject: {fileID: 1770854774256032038, guid: e151809ab1654d4439e7d9540650ff24,
+    type: 3}
+  ingredientHologramObject: {fileID: 4473256288182299799, guid: b083a064074b2294cab35d5f7c4659f7,
+    type: 3}
+  ingredientObjectRotation: {x: -163, y: 180, z: 76}

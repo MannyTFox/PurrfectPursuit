@@ -15,5 +15,10 @@ MonoBehaviour:
   ingredientName: Mana Flower
   ingredientImage: {fileID: 21300000, guid: 5e66963bb8c8ab949b88cbf84c022463, type: 3}
   styleAssetIndex: 5
-  ingredientObject: {fileID: 1059231616434358648, guid: 3b7a407724ede734fb5d3bb391268f0f,
+  ingredientObject: {fileID: 5059458528945182142, guid: d437f92889fb47a4d9871d900ba8df41,
     type: 3}
+  ingredientDroppedObject: {fileID: 3330937364677772639, guid: bee9614e67cf8b24498995a7dc1684b9,
+    type: 3}
+  ingredientHologramObject: {fileID: 1003820551879789163, guid: d3f6b0edf09886c468d57a2f34e1c4c8,
+    type: 3}
+  ingredientObjectRotation: {x: 0, y: 180, z: 96}

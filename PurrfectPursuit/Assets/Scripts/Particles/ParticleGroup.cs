@@ -11,6 +11,11 @@ public class ParticleGroup : MonoBehaviour
     {
         foreach (ParticleSystem particle in particles)
         {
+            if (particle.isPlaying == true)
+            {
+                particle.Stop();
+            }
+
             if (particle.isPlaying == false)
             {
                 particle.Play();
