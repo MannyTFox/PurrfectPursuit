@@ -10,7 +10,6 @@ public class Cauldron : MonoBehaviour
     [SerializeField] ParticleGroup correctIngredientParticleGroup;
     [SerializeField] ParticleGroup wrongIngredientParticleGroup;
 
-
     public void SpawnIngredient(GameObject ingredient)
     {
         GameObject obj = Instantiate(ingredient, ingredientDropSpot.position, Quaternion.identity);

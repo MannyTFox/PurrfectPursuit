@@ -15,5 +15,10 @@ MonoBehaviour:
   ingredientName: Yellow Powder
   ingredientImage: {fileID: 21300000, guid: 1acc87f6a997eaa4c8c5476e06fea04b, type: 3}
   styleAssetIndex: 0
-  ingredientObject: {fileID: 0}
-  ingredientObjectRotation: {x: 0, y: 0, z: 0}
+  ingredientObject: {fileID: 7010989187608089228, guid: 67866d7ddb514b648b74ebcf1ba99d48,
+    type: 3}
+  ingredientDroppedObject: {fileID: 7205515314190205545, guid: f1658b83e2c1eb0438d030674d7dc11f,
+    type: 3}
+  ingredientHologramObject: {fileID: 8098314794395179020, guid: 03ffb185eacf49e42a4a2795ed566530,
+    type: 3}
+  ingredientObjectRotation: {x: 15, y: 0, z: 0}

@@ -20,6 +20,7 @@ public class CaldronDeleteObjects : MonoBehaviour
     {
         if(other.gameObject.tag == "IngredientObject")
         {
+            // Destroy parent of gameobject
             Destroy(other.gameObject);
         }
     }

@@ -120,38 +120,74 @@ public class IngredientProcessor : MonoBehaviour
         statusText.text = "?";
     }
 
-    // Detect player to decide on action
-    private void OnTriggerEnter(Collider other)
+    public void PlayerEntersMethod(CatInventory catVentory)
     {
-        if (other.GetComponent<CatInventory>())
+        CatInventory inventory = catVentory;
+
+        // If player is putting something to be processed
+        if (inventory.ingredientImHolding != null && ingredientIn == null && ingredientOut == null) // move the item in the cat's inventory to the modifier.
         {
-
-            CatInventory inventory = other.GetComponent<CatInventory>();
-
-            // If player is putting something to be processed
-            if (inventory.ingredientImHolding != null && ingredientIn == null && ingredientOut == null) // move the item in the cat's inventory to the modifier.
+            if (validInputs.Contains(inventory.ingredientImHolding)) //ingredient is valid
             {
-                if (validInputs.Contains(inventory.ingredientImHolding)) //ingredient is valid
-                {
-                    ingredientIn = inventory.ingredientImHolding;
-                    inventory.ingredientImHolding = null;
+                // Add ingredient cat is holding
+                ingredientIn = inventory.ingredientImHolding;
 
-                    MachineStartsWork();
-                }
+                // Cat loses reference of said ingredient
+                inventory.CatLosesIngredient();
 
+                // Machine starts its process
+                MachineStartsWork();
             }
-            // If player is collecting the resulting ingredient
-            else if (ingredientOut && inventory.ingredientImHolding == null && isReady) // move output to cat's inventory
-            {
-                inventory.ingredientImHolding = ingredientOut;
-                ingredientOut = null;
-                isReady = false;
 
-                // Return text to normal after player collects item, waiting for another job
-                statusText.color = Color.green;
-                statusText.text = "!";
-                statusDisplayFillImage.fillAmount = 0;
-            }
+        }
+        // If player is collecting the resulting ingredient
+        else if (ingredientOut && inventory.ingredientImHolding == null && isReady) // move output to cat's inventory
+        {
+            // Gives ingredient to cat
+            inventory.GiveCatNewIngredient(ingredientOut);
+            ingredientOut = null;
+            isReady = false;
+
+            // Return text to normal after player collects item, waiting for another job
+            statusText.color = Color.green;
+            statusText.text = "!";
+            statusDisplayFillImage.fillAmount = 0;
+        }
+    }
+
+    public bool DoesPlayerHaveValidIngredient(CatInventory catInv)
+    {
+        if (validInputs.Contains(catInv.ingredientImHolding))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool IsMachineProcessing()
+    {
+        if (machineBeingUsed)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool IsIngredientReady()
+    {
+        if (isReady)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
    

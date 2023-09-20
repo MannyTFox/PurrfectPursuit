@@ -14,17 +14,25 @@ public class IngredientObject : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         if (gravityOn)
         {
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * Time.deltaTime, rb.velocity.z);
+        }
+    }
+
+    public void ObjectInDecorativeMode(bool isObjectInDecorativeMode)
+    {
+        // When in cats mouth
+        if (isObjectInDecorativeMode)
+        {
+            GravityOff();
+        }
+        // When its falling in the cauldron and when it is dropped on the ground
+        else
+        {
+            GravityOn();
         }
     }
 

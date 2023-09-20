@@ -15,5 +15,10 @@ MonoBehaviour:
   ingredientName: Blue Powder
   ingredientImage: {fileID: 21300000, guid: f6299838df860e844a23eec9f289e4da, type: 3}
   styleAssetIndex: 0
-  ingredientObject: {fileID: 0}
-  ingredientObjectRotation: {x: 0, y: 0, z: 0}
+  ingredientObject: {fileID: 8067272756410295614, guid: 490132ffff82fe54c82bb2939ace80b9,
+    type: 3}
+  ingredientDroppedObject: {fileID: 5633825907890538906, guid: e6aa167e24d0ce449b6638dfb0771828,
+    type: 3}
+  ingredientHologramObject: {fileID: 4575920005020054601, guid: f940c789e100e374895fa36261269fa1,
+    type: 3}
+  ingredientObjectRotation: {x: 15, y: 0, z: 0}
