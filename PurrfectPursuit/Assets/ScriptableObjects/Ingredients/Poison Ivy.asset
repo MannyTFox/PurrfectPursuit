@@ -22,3 +22,5 @@ MonoBehaviour:
   ingredientHologramObject: {fileID: 6163573946236961631, guid: 77fdde5cabf656a4096c11333bda81e1,
     type: 3}
   ingredientObjectRotation: {x: -22, y: 180, z: 70}
+  ingredientPickupAudioClip: {fileID: 8300000, guid: e39b6b81040f534459b04cd5a5357a54,
+    type: 3}

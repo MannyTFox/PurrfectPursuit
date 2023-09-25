@@ -12,7 +12,6 @@ public class IngredientPickup : MonoBehaviour
     [Space(10)]
     [SerializeField] bool canBePickedUpOnce = false;
 
-
     // Update is called once per frame
     private void Update()
     {
@@ -22,6 +21,12 @@ public class IngredientPickup : MonoBehaviour
     public virtual Ingredient GetIngredient()
     {
         return ingredient;
+    }
+
+    public void PlayIngredientPickupSound()
+    {
+        // Audio manager does everything, we just provide the clip stored in each ingredient!
+        AudioManager.audioManagerInstance.PlayIngredientPickupSound(GetIngredient().GetIngredientPickupAudioClip());
     }
 
     public void IsIngredientPickupableLever(bool lever)

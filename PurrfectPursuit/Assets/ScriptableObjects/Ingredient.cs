@@ -13,6 +13,9 @@ public class Ingredient : ScriptableObject
     [SerializeField] GameObject ingredientHologramObject;
     [SerializeField] Vector3 ingredientObjectRotation;
 
+    [Header("Sound")]
+    [SerializeField] AudioClip ingredientPickupAudioClip;
+
     public string GetIngredientName()
     {
         return ingredientName;
@@ -36,5 +39,17 @@ public class Ingredient : ScriptableObject
     public Vector3 GetIngredientRotation()
     {
         return ingredientObjectRotation;
+    }
+
+    public AudioClip GetIngredientPickupAudioClip()
+    {
+        if (ingredientPickupAudioClip != null)
+        {
+            return ingredientPickupAudioClip;
+        }
+        else
+        {
+            return null;
+        }
     }
 }

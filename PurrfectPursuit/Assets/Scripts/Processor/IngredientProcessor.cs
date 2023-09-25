@@ -22,8 +22,15 @@ public class IngredientProcessor : MonoBehaviour
     public List<Ingredient> validInputs = new List<Ingredient>();
     public List<Ingredient> validOutputs = new List<Ingredient>();
 
+    [Header("Audio")]
+    [SerializeField] AudioClip takeIngredientFromProcessorClip;
+    AudioSource processorAmbianceSource;
+
     private void Start()
     {
+        // Getting reference at start
+        processorAmbianceSource = GetComponent<AudioSource>();
+
         // Set timer to normal
         timer = 0;
 
@@ -103,6 +110,9 @@ public class IngredientProcessor : MonoBehaviour
         // Bool to indicate when the status image can start updating based on timer
         machineBeingUsed = true;
 
+        // Start playing clip of processor working
+        processorAmbianceSource.Play();
+
         // Text animation turn on
         statusText.color = Color.yellow;
         StartCoroutine(TextAnimationWhileMachineWorking());
@@ -112,6 +122,9 @@ public class IngredientProcessor : MonoBehaviour
     {
         // Machine stops
         machineBeingUsed = false;
+
+        // Stop making processor sound
+        processorAmbianceSource.Stop();
 
         // Stop animation
         StopAllCoroutines();
@@ -147,6 +160,9 @@ public class IngredientProcessor : MonoBehaviour
             inventory.GiveCatNewIngredient(ingredientOut);
             ingredientOut = null;
             isReady = false;
+            // Play sound of getting ingredient from processor
+            AudioManager.audioManagerInstance.PlayIngredientPickupSound(takeIngredientFromProcessorClip);
+
 
             // Return text to normal after player collects item, waiting for another job
             statusText.color = Color.green;

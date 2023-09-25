@@ -13,10 +13,14 @@ public class BookBehaviour : MonoBehaviour
     [SerializeField] List<hologramPos> hologramPositions = new List<hologramPos>();
     List<GameObject> hologramReferences = new List<GameObject>();
 
+    [Header("Audio")]
+    AudioSource bookAmbianceSource;
+
     // Start is called before the first frame update
     void Start()
     {
         bookAnim = GetComponent<Animator>();
+        bookAmbianceSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -26,47 +30,22 @@ public class BookBehaviour : MonoBehaviour
             // Holograms instantly dissapear when player leaves
             MakeHologramsDissapearLever(true);
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        // When player enters, book opens and shows ingredients
-        /*if(other.gameObject.tag == "Player")
+        // Check to play hologram audio
+        if (ingredientsShowing)
         {
-            if (ingredientsShowing == false)
+            if (bookAmbianceSource.isPlaying == false)
             {
-                // Enters this only once when player steps in, needs to be reset by exiting to enter here again
-                ingredientsShowing = true;
-
-                // Setting parameters for animation
-                bookAnim.SetTrigger("open");
-                bookAnim.SetBool("hologramIdle", true);
-                bookAnim.SetBool("idle", false);
-
-                // Holograms appear after a little delay
-                StartCoroutine(DelayToAppearHolograms());
+                bookAmbianceSource.Play();
             }
-        }*/
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        // When player leaves, go back to idle, stop showing ingredients
-        /*if (other.gameObject.tag == "Player")
+        }
+        else
         {
-            if (ingredientsShowing)
+            if (bookAmbianceSource.isPlaying)
             {
-                // Reset so player can enter again and activate animations etc
-                ingredientsShowing = false;
-
-                // Set parameters for animations
-                bookAnim.SetBool("hologramIdle", false);
-                bookAnim.SetBool("idle", true);
-
-                // Holograms instantly dissapear when player leaves
-                MakeHologramsDissapearLever(true);
+                bookAmbianceSource.Stop();
             }
-        }*/
+        }
     }
 
     public void ShowHolograms()
@@ -102,19 +81,6 @@ public class BookBehaviour : MonoBehaviour
         foreach (hologramPos holoPos in hologramPositions)
         {
             holoPos.LoseHoloReference();
-        }
-
-        // Clear hologram references if there are any
-        if(hologramReferences.Count != 0)
-        {
-            // Delete existing holograms
-            /*foreach (GameObject holoRef in hologramReferences)
-            {
-                Destroy(holoRef);
-            }
-
-            // Clear list
-            ResetHologramReferenceList();*/
         }
 
         // Instantiate that many holograms in a random space

@@ -298,6 +298,9 @@ public class CatInventory : MonoBehaviour
             newMouthObj.GetComponent<IngredientObject>().ObjectInDecorativeMode(true);
             newMouthObj.transform.parent = itemHolding;
             newMouthObj.transform.localEulerAngles = ingredientImHolding.GetIngredientRotation();
+
+            // Play ingredient sound of being picked up
+            AudioManager.audioManagerInstance.PlayIngredientPickupSound(ingredientImHolding.GetIngredientPickupAudioClip());
         }
         else
         {
