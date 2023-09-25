@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
 
         // ---
 
-        // After a little bit of time, show level title
+        // After a little bit of time, show level title and start music
         StartCoroutine(DelayToPresentDay());
     }
 
@@ -148,6 +148,9 @@ public class GameManager : MonoBehaviour
         }
 
         dayPresentatorAnim.SetTrigger("dayPresentation");
+
+        // Start main music theme
+        AudioManager.audioManagerInstance.PlayMainMusic();
     }
 
     public void UpdatePotionPointsText()
@@ -260,6 +263,9 @@ public class GameManager : MonoBehaviour
             time += 3;
             ingredientsIwant.Remove(ing);
 
+            // Play good feedbacksound
+            AudioManager.audioManagerInstance.PlayIngredientFeedbackAudio(true);
+
             // Book gets references and makes new holograms
             book.UpdateHolograms();
         }
@@ -271,6 +277,9 @@ public class GameManager : MonoBehaviour
 
             // Witch animation
             witchAnimator.SetTrigger("throw");
+
+            // Play bad feedbacksound
+            AudioManager.audioManagerInstance.PlayIngredientFeedbackAudio(false);
 
             // Wrong ingredient penalty
             time -= 10;
