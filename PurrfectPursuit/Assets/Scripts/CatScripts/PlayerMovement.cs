@@ -39,8 +39,6 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         locked = true;
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -51,12 +49,6 @@ public class PlayerMovement : MonoBehaviour
 
         MyInput();
         SpeedControl();
-
-        if (locked == false)
-        {
-            MovePlayer();
-            RotationOfPlayer();
-        }
 
         // Handle Drag
         if (grounded)
@@ -102,6 +94,15 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector3(0, 0, 0);
             }*/
         #endregion
+    }
+
+    private void FixedUpdate()
+    {
+        if (locked == false)
+        {
+            MovePlayer();
+            RotationOfPlayer();
+        }
     }
 
     public void MyInput()

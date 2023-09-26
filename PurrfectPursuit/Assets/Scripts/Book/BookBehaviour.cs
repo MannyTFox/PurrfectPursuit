@@ -95,8 +95,7 @@ public class BookBehaviour : MonoBehaviour
                        Quaternion.identity);
 
             chosenPos.SetIngredientHologramReference(newHolo);
-            print("pos has reference: " + chosenPos.GetHologramObject());
-            //hologramReferences.Add(newHolo);
+            
         }
 
         // Depending if holograms are showing, make them appear or dissapear

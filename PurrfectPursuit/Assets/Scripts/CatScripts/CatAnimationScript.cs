@@ -23,10 +23,19 @@ public class CatAnimationScript : MonoBehaviour
             rb.velocity.y > 0.1f || rb.velocity.y < -0.1f)
         {
             anim.SetBool("running", true);
+
+            // Start cat step loop
+            if (AudioManager.audioManagerInstance.IsCatStepCoroutinePlaying() == false)
+            {
+                StartCoroutine(AudioManager.audioManagerInstance.CatWalkSoundLoop());
+            }
         }
         else
         {
             anim.SetBool("running", false);
+
+            // Stop cat step loop
+            AudioManager.audioManagerInstance.CatWalkLoopBoolLever(false);
         }
     }
 }

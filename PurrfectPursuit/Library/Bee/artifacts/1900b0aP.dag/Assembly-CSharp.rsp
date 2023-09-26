@@ -337,6 +337,7 @@
 "Assets/Scripts/InteractSpots/InteractSpotProcessor.cs"
 "Assets/Scripts/ItemPickupRotator.cs"
 "Assets/Scripts/Managers/AudioManager.cs"
+"Assets/Scripts/Managers/DebugInfoController.cs"
 "Assets/Scripts/Managers/GameManager.cs"
 "Assets/Scripts/Managers/GamePrefs.cs"
 "Assets/Scripts/Managers/Prefs.cs"

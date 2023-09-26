@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - CatInventory
     - CatShenanigans
     - Cauldron
+    - DebugInfoController
     - GameManager
     - GamePrefs
     - INFOBheaviour
@@ -109,8 +110,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -481,6 +484,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12156}
     - Class: 114
       Script: {instanceID: 12572}
+    - Class: 114
+      Script: {instanceID: 45770}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2653,8 +2658,14 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 33a3603c4b5c83a4204c1de3c1b9b4a8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DebugInfoController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu/MainMenu.unity
   - Assets/Scenes/Demo1/Demo1.unity
-  playerPath: D:/Arte/PurfectPursuit/Builds/Build 0.1/PurrfectPursuit.exe
+  playerPath: D:/Arte/PurfectPursuit/Builds/BuildTest/PurrfectPursuit.exe
