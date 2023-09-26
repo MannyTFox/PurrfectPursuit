@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     [Header("List of potions game can pick from")]
     public List<PotionRecipe> recipes = new List<PotionRecipe>();
 
+    [Header("Game Started")]
+    bool gameStarted = false;
+
     [Header("UI references")]
     public TextMeshProUGUI dayTimer;
     [SerializeField] TextMeshProUGUI potionPointsText;
@@ -113,6 +116,8 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
+        gameStarted = true;
+
         // Tutorial Dissapears
         startTutorialRef.SetActive(false);
 
@@ -132,6 +137,18 @@ public class GameManager : MonoBehaviour
 
         // After a little bit of time, show level title and start music
         StartCoroutine(DelayToPresentDay());
+    }
+
+    public bool HasGameStarted()
+    {
+        if (gameStarted)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public IEnumerator DelayToPresentDay()
@@ -258,7 +275,7 @@ public class GameManager : MonoBehaviour
             cauldronScript.CorrectIngredientBehaviour();
 
             // Ingredient is removed, potion progress & time reward
-            witchAnimator.SetTrigger("throw");
+            witchAnimator.SetTrigger("ingredientAdd");
             ingredientsLeft -= 1;
             time += 3;
             ingredientsIwant.Remove(ing);
@@ -276,7 +293,7 @@ public class GameManager : MonoBehaviour
             cauldronScript.WrongIngredientBehaviour();
 
             // Witch animation
-            witchAnimator.SetTrigger("throw");
+            witchAnimator.SetTrigger("ingredientAdd");
 
             // Play bad feedbacksound
             AudioManager.audioManagerInstance.PlayIngredientFeedbackAudio(false);
@@ -297,7 +314,7 @@ public class GameManager : MonoBehaviour
 
 
         // Witch animation
-        witchAnimator.SetTrigger("power");
+        witchAnimator.SetTrigger("potionFinalized");
 
         // Change thinking bubble to different image
         potionImage.sprite = potionTransitionImage;
@@ -403,6 +420,11 @@ public class GameManager : MonoBehaviour
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GoBackToMenuScene()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     // Gets

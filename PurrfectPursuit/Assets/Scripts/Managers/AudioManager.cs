@@ -16,6 +16,10 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX - Sources")]
     [SerializeField] AudioSource SFXCatSource;
+    [SerializeField] AudioSource SFXCatMovementSource;
+    [SerializeField] AudioClip catStepClip;
+    bool stepCoroutinePlaying = false;
+
     [Space(10)]
     [SerializeField] AudioSource SFXIngredientPickupSource;
     [Space(10)]
@@ -100,6 +104,8 @@ public class AudioManager : MonoBehaviour
         SFXIngredientFeedbackSource.Play();
     }
 
+    // --- CAT ---
+
     public void PlayCatSFX(AudioClip newClip, float newPitch)
     {
         if (SFXCatSource.isPlaying)
@@ -112,6 +118,56 @@ public class AudioManager : MonoBehaviour
         SFXCatSource.Play();
     }
 
+    public bool IsCatStepCoroutinePlaying()
+    {
+        if (stepCoroutinePlaying)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void CatWalkLoopBoolLever(bool lever)
+    {
+        if (lever)
+        {
+            stepCoroutinePlaying = true;
+        }
+        else
+        {
+            stepCoroutinePlaying = false;
+        }
+    }
+
+    public IEnumerator CatWalkSoundLoop()
+    {
+        // Coroutine is playing
+        if (stepCoroutinePlaying == false)
+        {
+            stepCoroutinePlaying = true;
+        }
+
+        // If clip is not associated, do it
+        if(SFXCatMovementSource.clip != catStepClip)
+        {
+            SFXCatMovementSource.clip = catStepClip;
+        }
+
+        // Random pitch and play
+        SFXCatMovementSource.pitch = Random.Range(0.6f, 0.8f);
+        SFXCatMovementSource.Play();
+
+        yield return new WaitForSeconds(0.2f);
+
+        // Loop
+        if (stepCoroutinePlaying)
+        {
+            StartCoroutine(CatWalkSoundLoop());
+        }
+    }
 
     // ------ UI ------
     public void ButtonClickSound()

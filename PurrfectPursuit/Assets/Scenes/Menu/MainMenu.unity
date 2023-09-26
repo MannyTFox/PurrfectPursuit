@@ -404,10 +404,10 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 1
   m_fontColorGradient:
-    topLeft: {r: 0.9433962, g: 0.24385896, b: 0.35986266, a: 1}
-    topRight: {r: 1, g: 0.35225368, b: 0.2584905, a: 1}
-    bottomLeft: {r: 0.9433962, g: 0.24385896, b: 0.35986266, a: 1}
-    bottomRight: {r: 1, g: 0.35225368, b: 0.2584905, a: 1}
+    topLeft: {r: 1, g: 0.87969685, b: 0.7019608, a: 1}
+    topRight: {r: 1, g: 0.7176471, b: 0.49019608, a: 1}
+    bottomLeft: {r: 1, g: 0.87969685, b: 0.7019608, a: 1}
+    bottomRight: {r: 1, g: 0.7176471, b: 0.49019608, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -752,10 +752,10 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 1
   m_fontColorGradient:
-    topLeft: {r: 0.5845278, g: 0.055322148, b: 0.7924528, a: 1}
-    topRight: {r: 0.94509804, g: 0.082352936, b: 0.7209405, a: 1}
-    bottomLeft: {r: 0.5845278, g: 0.055322148, b: 0.7924528, a: 1}
-    bottomRight: {r: 0.94509804, g: 0.082352936, b: 0.7209405, a: 1}
+    topLeft: {r: 1, g: 0.34901962, b: 0, a: 1}
+    topRight: {r: 1, g: 0.7176471, b: 0.49019608, a: 1}
+    bottomLeft: {r: 1, g: 0.34901962, b: 0, a: 1}
+    bottomRight: {r: 1, g: 0.7176471, b: 0.49019608, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -937,10 +937,10 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 1
   m_fontColorGradient:
-    topLeft: {r: 0.5845278, g: 0.055322148, b: 0.7924528, a: 1}
-    topRight: {r: 0.94509804, g: 0.082352936, b: 0.7209405, a: 1}
-    bottomLeft: {r: 0.5845278, g: 0.055322148, b: 0.7924528, a: 1}
-    bottomRight: {r: 0.94509804, g: 0.082352936, b: 0.7209405, a: 1}
+    topLeft: {r: 1, g: 0.34901962, b: 0, a: 1}
+    topRight: {r: 1, g: 0.7176471, b: 0.49019608, a: 1}
+    bottomLeft: {r: 1, g: 0.34901962, b: 0, a: 1}
+    bottomRight: {r: 1, g: 0.7176471, b: 0.49019608, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1062,11 +1062,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.2627451, g: 0.2627451, b: 0.2627451, a: 1}
+    m_HighlightedColor: {r: 0.65882355, g: 0.65882355, b: 0.65882355, a: 1}
+    m_PressedColor: {r: 0.8584906, g: 0.40051743, b: 0.051833343, a: 1}
+    m_SelectedColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
+    m_DisabledColor: {r: 0.7009092, g: 0.36139196, b: 0.745283, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.59707, b: 0.5886792, a: 1}
+  m_Color: {r: 1, g: 0.34901962, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2066,7 +2066,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9584977, g: 0.81035954, b: 0.9716981, a: 1}
+    m_NormalColor: {r: 0.71435446, g: 0.3437878, b: 0.8207547, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2484,11 +2484,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
+    m_HighlightedColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+    m_PressedColor: {r: 0.8584906, g: 0.40051743, b: 0.051833343, a: 1}
+    m_SelectedColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
+    m_DisabledColor: {r: 0.7009092, g: 0.36139196, b: 0.745283, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2649,7 +2649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.81380373, g: 0.5321823, b: 0.9339623, a: 1}
+  m_Color: {r: 1, g: 0.87969685, b: 0.7019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3290,10 +3290,10 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
-    topLeft: {r: 0.5816141, g: 0.109950125, b: 0.6698113, a: 1}
-    topRight: {r: 0.5816141, g: 0.109950125, b: 0.6698113, a: 1}
-    bottomLeft: {r: 0.935909, g: 0, b: 0.9433962, a: 1}
-    bottomRight: {r: 0.935909, g: 0, b: 0.9433962, a: 1}
+    topLeft: {r: 1, g: 0.34901962, b: 0, a: 1}
+    topRight: {r: 1, g: 0.34901962, b: 0, a: 1}
+    bottomLeft: {r: 1, g: 0.7176471, b: 0.49019608, a: 1}
+    bottomRight: {r: 1, g: 0.7176471, b: 0.49019608, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -3508,10 +3508,10 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 1
   m_fontColorGradient:
-    topLeft: {r: 0.5845278, g: 0.055322148, b: 0.7924528, a: 1}
-    topRight: {r: 0.94509804, g: 0.082352936, b: 0.7209405, a: 1}
-    bottomLeft: {r: 0.5845278, g: 0.055322148, b: 0.7924528, a: 1}
-    bottomRight: {r: 0.94509804, g: 0.082352936, b: 0.7209405, a: 1}
+    topLeft: {r: 1, g: 0.34901962, b: 0, a: 1}
+    topRight: {r: 1, g: 0.7176471, b: 0.49019608, a: 1}
+    bottomLeft: {r: 1, g: 0.34901962, b: 0, a: 1}
+    bottomRight: {r: 1, g: 0.7176471, b: 0.49019608, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -3644,10 +3644,10 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 1
   m_fontColorGradient:
-    topLeft: {r: 0.6542099, g: 0.10017798, b: 0.7924528, a: 1}
-    topRight: {r: 0.40817532, g: 0.06696329, b: 0.6226415, a: 1}
-    bottomLeft: {r: 0.6542099, g: 0.10017798, b: 0.7924528, a: 1}
-    bottomRight: {r: 0.40817532, g: 0.06696329, b: 0.6226415, a: 1}
+    topLeft: {r: 0.5058824, g: 0.35686275, b: 0.24705882, a: 1}
+    topRight: {r: 0.25098038, g: 0.18039212, b: 0.12549016, a: 1}
+    bottomLeft: {r: 0.5058824, g: 0.35686275, b: 0.24705882, a: 1}
+    bottomRight: {r: 0.25098038, g: 0.18039212, b: 0.12549016, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -4010,11 +4010,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.2627451, g: 0.2627451, b: 0.2627451, a: 1}
+    m_HighlightedColor: {r: 0.65882355, g: 0.65882355, b: 0.65882355, a: 1}
+    m_PressedColor: {r: 0.8584906, g: 0.40051743, b: 0.051833343, a: 1}
+    m_SelectedColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
+    m_DisabledColor: {r: 0.7009092, g: 0.36139196, b: 0.745283, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4305,10 +4305,10 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 1
   m_fontColorGradient:
-    topLeft: {r: 0.6932082, g: 0.07609465, b: 0.7075472, a: 1}
-    topRight: {r: 0.5484409, g: 0, b: 0.6981132, a: 1}
-    bottomLeft: {r: 0.6932082, g: 0.07609465, b: 0.7075472, a: 1}
-    bottomRight: {r: 0.5484409, g: 0, b: 0.6981132, a: 1}
+    topLeft: {r: 1, g: 0.34901962, b: 0, a: 1}
+    topRight: {r: 0.9433962, g: 0.5411726, b: 0.21715912, a: 1}
+    bottomLeft: {r: 1, g: 0.34901962, b: 0, a: 1}
+    bottomRight: {r: 0.9433962, g: 0.5411726, b: 0.21715912, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0

@@ -19,7 +19,7 @@ public class InteractSpot : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && pressedButton == false && playerIn)
         {
             pressedButton = true;
-            print("player press");
+            
             book.ShowHolograms();
         }
     }
