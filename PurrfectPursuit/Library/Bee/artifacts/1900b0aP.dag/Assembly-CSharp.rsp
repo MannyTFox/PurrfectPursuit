@@ -342,6 +342,7 @@
 "Assets/Scripts/Managers/GamePrefs.cs"
 "Assets/Scripts/Managers/Prefs.cs"
 "Assets/Scripts/Managers/UIManager.cs"
+"Assets/Scripts/Managers/VolumeManager.cs"
 "Assets/Scripts/Menu/AudioManagerMenu.cs"
 "Assets/Scripts/Menu/MainCamAnimationMethods.cs"
 "Assets/Scripts/Menu/MainMenuLevelManager.cs"
