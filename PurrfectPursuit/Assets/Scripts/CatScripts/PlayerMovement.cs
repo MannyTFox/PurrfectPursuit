@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform playerCenter;
     public Rigidbody rb;
     public PhysicMaterial playerPhysicsMat;
-    float physicsMatFrictionValue = 0.5f;
+    float physicsMatFrictionValue = 0.2f;
 
     float horizontalInput;
     float verticalInput;
@@ -47,8 +47,12 @@ public class PlayerMovement : MonoBehaviour
         // Ground Check
         grounded = Physics.Raycast(playerCenter.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
-        MyInput();
-        SpeedControl();
+        // Cant get input for jump while locked
+        if (locked == false)
+        {
+            MyInput();
+            SpeedControl();
+        }
 
         // Handle Drag
         if (grounded)
@@ -57,8 +61,8 @@ public class PlayerMovement : MonoBehaviour
 
             // Set cat physics mat to normal friction so it doesnt slide off ramps
             playerPhysicsMat.dynamicFriction = physicsMatFrictionValue;
-            playerPhysicsMat.staticFriction = 1;
-            playerPhysicsMat.frictionCombine = PhysicMaterialCombine.Maximum;
+            playerPhysicsMat.staticFriction = 1f;
+            playerPhysicsMat.frictionCombine = PhysicMaterialCombine.Minimum;
         }
         else
         {
@@ -71,33 +75,34 @@ public class PlayerMovement : MonoBehaviour
         }
 
         #region Old Movement
-            /*//rotate orientation
-            Vector3 viewDir = this.gameObject.transform.position - new Vector3(Camera.main.transform.position.x,
-                                                                       this.gameObject.transform.position.y,
-                                                                       Camera.main.transform.position.z);
-            orientation.forward = viewDir.normalized;
+        /*//rotate orientation
+        Vector3 viewDir = this.gameObject.transform.position - new Vector3(Camera.main.transform.position.x,
+                                                                   this.gameObject.transform.position.y,
+                                                                   Camera.main.transform.position.z);
+        orientation.forward = viewDir.normalized;
 
-            //rotate player object
-            Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        //rotate player object
+        Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-            if (inputDir != Vector3.zero)
-            {
-                playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+        if (inputDir != Vector3.zero)
+        {
+            playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
 
-                // Apply movement to the rigidbody
-                rb.velocity = inputDir.normalized * movementSpeed;
+            // Apply movement to the rigidbody
+            rb.velocity = inputDir.normalized * movementSpeed;
 
-            }
-            else
-            {
-                // Apply break to the rigidbody
-                rb.velocity = new Vector3(0, 0, 0);
-            }*/
+        }
+        else
+        {
+            // Apply break to the rigidbody
+            rb.velocity = new Vector3(0, 0, 0);
+        }*/
         #endregion
     }
 
     private void FixedUpdate()
     {
+        // Cant move while locked
         if (locked == false)
         {
             MovePlayer();
@@ -105,22 +110,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void MyInput()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetKey(KeyCode.Space) && readyToJump && grounded)
-        {
-            readyToJump = false;
-
-            Jump();
-
-            // Set delay for next jump
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
-    }
-
+    // GETS
     public bool IsPlayerPressingMovementInput()
     {
         if(horizontalInput == 0 && verticalInput == 0)
@@ -133,6 +124,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public bool IsPlayerGrounded()
+    {
+        if (grounded)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+    // PLAYER MOVEMENT
     public void MovePlayer()
     {
         // Old
@@ -182,6 +187,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+    // JUMP
     void Jump()
     {
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -194,6 +201,24 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
     }
 
+    public void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKey(KeyCode.Space) && readyToJump && grounded)
+        {
+            readyToJump = false;
+
+            Jump();
+
+            // Set delay for next jump
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
+    }
+
+
+    // UTILITY METHODS
     public void LockPlayer()
     {
         locked = true;
