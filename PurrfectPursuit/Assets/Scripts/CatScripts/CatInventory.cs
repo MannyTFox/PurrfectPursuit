@@ -14,8 +14,8 @@ public class CatInventory : MonoBehaviour
     [SerializeField] Transform itemHolding;
     public bool canGetIngredient = true;
 
-    [Header("UI Control")]
-    int x;
+    [Header("Audio")]
+    [SerializeField] AudioClip catDropSoundClip;
 
     private void Start()
     {
@@ -51,12 +51,18 @@ public class CatInventory : MonoBehaviour
                 // Drop ingredient
                 DropObject(ingredientImHolding.GetIngredientDroppedObject(), true);
                 CatLosesIngredient();
+
+                // Make drop sound
+                AudioManager.audioManagerInstance.PlayCatSFX(catDropSoundClip, 1.3f, 0.2f);
             }
             else if(itemImHolding != null)
             {
                 // Drop other item cat is holding
                 DropObject(itemImHolding, false);
                 CatLosesItem();
+
+                // Make drop sound
+                AudioManager.audioManagerInstance.PlayCatSFX(catDropSoundClip, 1.3f, 0.2f);
             }
             else
             {

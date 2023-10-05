@@ -218,6 +218,17 @@ public class MenuManager : MonoBehaviour
     }
 
 
+    // SOUND
+    public void MainMenuButtonHoverSound()
+    {
+        // This method exists because when Level Selector is open they shouldnt make hover sound
+        if (atLevelSelect == false && canPressMainMenuButtons)
+        {
+            AudioManagerMenu.audioManagerinstance.ButtonHoverSound();
+        }
+    }
+
+
     // OPTIONS MENU -------
 
     // Fullscreen

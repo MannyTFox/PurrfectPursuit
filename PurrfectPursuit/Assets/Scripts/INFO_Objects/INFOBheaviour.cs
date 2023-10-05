@@ -9,11 +9,14 @@ public class INFOBheaviour : MonoBehaviour
 
     [SerializeField] GameObject canvasINFOReference;
 
+    AudioSource infoObjectSoundSource;
+
     INFOObject lookINFOScript;
 
     private void Start()
     {
         lookINFOScript = transform.Find("INFO_Object").GetComponent<INFOObject>();
+        infoObjectSoundSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +29,13 @@ public class INFOBheaviour : MonoBehaviour
             // Info stops looking and plays animation
             lookINFOScript.InfoStopLooking();
             lookINFOScript.PlaySpinAnimation();
+
+            // Play info player-pass sound
+            if (infoObjectSoundSource.isPlaying)
+            {
+                infoObjectSoundSource.Stop();
+            }
+            infoObjectSoundSource.Play();
         }
     }
 

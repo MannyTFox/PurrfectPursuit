@@ -79,7 +79,7 @@ public class AudioManager : MonoBehaviour
         if(randomNumber < chanceOfChangingPitchPercentage)
         {
             // Get random pitch value
-            float randomPitchValue = Random.Range(0.5f, 0.98f);
+            float randomPitchValue = Random.Range(0.9f, 1.3f);
 
             return randomPitchValue;
         }
@@ -107,7 +107,7 @@ public class AudioManager : MonoBehaviour
 
     // --- CAT ---
 
-    public void PlayCatSFX(AudioClip newClip, float newPitch)
+    public void PlayCatSFX(AudioClip newClip, float newPitch, float newVolume)
     {
         if (SFXCatSource.isPlaying)
         {
@@ -116,6 +116,7 @@ public class AudioManager : MonoBehaviour
 
         SFXCatSource.pitch = newPitch;
         SFXCatSource.clip = newClip;
+        SFXCatSource.volume = newVolume;
         SFXCatSource.Play();
     }
 
@@ -172,7 +173,7 @@ public class AudioManager : MonoBehaviour
     {
         SFXUISource.clip = click1;
         SFXUISource.pitch = 1;
-        SFXUISource.volume = 1;
+        SFXUISource.volume = 0.3f;
         SFXUISource.Play();
     }
 
@@ -180,7 +181,7 @@ public class AudioManager : MonoBehaviour
     {
         SFXUISource.clip = pop1;
         SFXUISource.pitch = 1;
-        SFXUISource.volume = 1;
+        SFXUISource.volume = 0.3f;
         SFXUISource.Play();
     }
 

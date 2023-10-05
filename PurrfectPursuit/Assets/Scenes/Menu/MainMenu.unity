@@ -646,7 +646,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: a4451a6870db5454fa4fbfa780700cd2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2391,9 +2391,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1403885633}
-          m_TargetAssemblyTypeName: AudioManagerMenu, Assembly-CSharp
-          m_MethodName: ButtonHoverSound
+        - m_Target: {fileID: 472310717}
+          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+          m_MethodName: MainMenuButtonHoverSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3768,7 +3768,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5224,9 +5224,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1403885633}
-          m_TargetAssemblyTypeName: AudioManagerMenu, Assembly-CSharp
-          m_MethodName: ButtonHoverSound
+        - m_Target: {fileID: 472310717}
+          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+          m_MethodName: MainMenuButtonHoverSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7021,7 +7021,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 9ec37febb2556e441b1e76d5110cfb56, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7269,9 +7269,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1403885633}
-          m_TargetAssemblyTypeName: AudioManagerMenu, Assembly-CSharp
-          m_MethodName: ButtonHoverSound
+        - m_Target: {fileID: 472310717}
+          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+          m_MethodName: MainMenuButtonHoverSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

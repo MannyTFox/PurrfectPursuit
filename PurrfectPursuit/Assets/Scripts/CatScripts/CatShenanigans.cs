@@ -24,6 +24,6 @@ public class CatShenanigans : MonoBehaviour
         float randomPitch = Random.Range(0.6f, 2f);
 
         // Play audio from manager
-        AudioManager.audioManagerInstance.PlayCatSFX(catMeows[randomNumber], randomPitch);
+        AudioManager.audioManagerInstance.PlayCatSFX(catMeows[randomNumber], randomPitch, 0.1f);
     }
 }
