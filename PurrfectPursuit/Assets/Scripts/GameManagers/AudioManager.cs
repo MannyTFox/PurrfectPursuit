@@ -33,6 +33,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip click1;
     [SerializeField] AudioClip menuOpen;
 
+    [Header("(UI) - PotionMeter")]
+    [SerializeField] AudioSource fillingSource;
+    [SerializeField] AudioSource challengeBlingSource;
+    [SerializeField] AudioSource cheerSource;
+
     private void Awake()
     {
         audioManagerInstance = this.GetComponent<AudioManager>();    
@@ -191,5 +196,29 @@ public class AudioManager : MonoBehaviour
         SFXUISource.pitch = 1;
         SFXUISource.volume = 0.2f;
         SFXUISource.Play();
+    }
+
+    // Potion Meter (UI)
+    public void PlayChallengeCompletedSound()
+    {
+        challengeBlingSource.Play();
+    }
+
+    public void PotionMeterFillingSoundOn()
+    {
+        if (fillingSource.isPlaying == false)
+        {
+            fillingSource.Play();
+        }
+    }
+
+    public void PotionMeterFillingSoundOff()
+    {
+        fillingSource.Stop();
+    }
+
+    public void CheerSoundPlay()
+    {
+        cheerSource.Play();
     }
 }

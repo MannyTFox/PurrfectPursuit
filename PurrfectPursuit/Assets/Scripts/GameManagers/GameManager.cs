@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     ///  Each level has a threshold of potions to be sold each day to unlock the next Day/Challenge
     /// </summary>
+    [Header("Day_Over")]
     [SerializeField] int potionsSold; // # of potions sold on the current day
     [SerializeField] int potionPoints;
     [SerializeField] int potionHighscore;
@@ -64,8 +65,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] int potionChallenge2 = 3; // = howManyPotionsToBeatLevel
     [SerializeField] int potionChallenge3 = 4;
     float meterFillAmount = 0;
+    bool dayOverOnce = true;
     bool canUpdatePotionMeter = false;
     bool setFillMeterAmountOnce = true;
+    bool challenge1completed = false;
+    bool challenge2completed = false;
+    bool challenge3completed = false;
 
     [Header("Highscore_Sign")]
     [SerializeField] TextMeshProUGUI highscoreSignText;
@@ -278,8 +283,11 @@ public class GameManager : MonoBehaviour
     {
         //dayTimer.text = time.ToString();
         timeBar.fillAmount = time / timeMax;
-        if (time <= 0)
+
+        if (time <= 0 && dayOverOnce)
         {
+            dayOverOnce = false;
+
             DayOver();
         }
     }
@@ -335,6 +343,18 @@ public class GameManager : MonoBehaviour
         {
             UpdatePotionMeter();
         }
+
+        #if UNITY_EDITOR
+        // DEBUG INPUTS
+        if (Input.GetKey(KeyCode.T))
+        {
+            challenge1completed = true;
+            challenge2completed = true;
+            challenge3completed = true;
+            meterFillAmount = 1;
+            DayOver();
+        }
+        #endif
 
     }
 
@@ -399,6 +419,9 @@ public class GameManager : MonoBehaviour
             // Wrong ingredient penalty
             time -= 10;
         }
+
+        // Chance to Play book special voice interaction
+        CharacterAudioManager.charAudioManInstance.ChanceToPlayBookClip(ing.GetIngredientName());
     }
 
     IEnumerator Congratulate()
@@ -457,9 +480,9 @@ public class GameManager : MonoBehaviour
         
         // Show tally screen, save balance.
 
-        potionsSoldText.text = ("Potions sold: " + potionsSold.ToString());
-        potionsPointsTallyText.text = ("Potions Points: " + potionPoints.ToString());
-        potionsSoldHighscoreTallyText.text = ("Potions Sold Highscore: " + PlayerPrefs.GetInt(Prefs.DemoHighScore));
+        potionsSoldText.text = ("Poções Vendidas: " + potionsSold.ToString());
+        potionsPointsTallyText.text = ("Pontos de Poção: " + potionPoints.ToString());
+        potionsSoldHighscoreTallyText.text = ("Pontos de Poção Highscore: " + PlayerPrefs.GetInt(Prefs.DemoHighScore));
 
 
         // Make tally panel appear
@@ -467,6 +490,9 @@ public class GameManager : MonoBehaviour
 
         // Allow Meter to update
         canUpdatePotionMeter = true;
+
+        // Filling sound starts
+        AudioManager.audioManagerInstance.PotionMeterFillingSoundOn();
     }
 
     public void UpdatePotionMeter()
@@ -479,23 +505,85 @@ public class GameManager : MonoBehaviour
             if (potionPoints >= potionChallenge1 && potionPoints < potionChallenge2)
             {
                 meterFillAmount = 0.3f;
+
+                challenge1completed = true;
             }
             else if (potionPoints >= potionChallenge2 && potionPoints < potionChallenge3)
             {
                 meterFillAmount = 0.6f;
+
+                challenge1completed = true;
+                challenge2completed = true;
             }
             else if (potionPoints >= potionChallenge3)
             {
                 meterFillAmount = 1f;
+
+                challenge1completed = true;
+                challenge2completed = true;
+                challenge3completed = true;
             }
+
+            // Save in player prefs the progress on this level
+            #region Challenge Playerprefs
+            // if any challenge was completed
+            if (challenge1completed == true || challenge2completed == true || challenge3completed == true)
+            {
+                // If the prefs already exist, compare to save
+                if (PlayerPrefs.HasKey(Prefs.DemoProgress))
+                {
+                    if (challenge3completed && PlayerPrefs.GetInt(Prefs.DemoProgress) < 3)
+                    {
+                        PlayerPrefs.SetInt(Prefs.DemoProgress, 3);
+                    }
+                    else if (challenge2completed && PlayerPrefs.GetInt(Prefs.DemoProgress) < 2)
+                    {
+                        PlayerPrefs.SetInt(Prefs.DemoProgress, 2);
+                    }
+                    else if (challenge1completed && PlayerPrefs.GetInt(Prefs.DemoProgress) < 1)
+                    {
+                        PlayerPrefs.SetInt(Prefs.DemoProgress, 1);
+                    }
+
+                    PlayerPrefs.Save();
+                }
+                // If its the first time the player is completing the level
+                else
+                {
+                    if (challenge3completed)
+                    {
+                        PlayerPrefs.SetInt(Prefs.DemoProgress, 3);
+                    }
+                    else if (challenge2completed)
+                    {
+                        PlayerPrefs.SetInt(Prefs.DemoProgress, 2);
+                    }
+                    else if (challenge1completed)
+                    {
+                        PlayerPrefs.SetInt(Prefs.DemoProgress, 1);
+                    }
+
+                    PlayerPrefs.Save();
+                }
+            }
+            else
+            {
+                // if no challenge was completed, there is nothing to save
+            }
+            #endregion
         }
 
-        if (potionMeterFillImage.fillAmount >= meterFillAmount)
+        if (potionMeterFillImage.fillAmount >= meterFillAmount && canUpdatePotionMeter)
         {
             // Finished filling up!
             canUpdatePotionMeter = false;
+
+            // Stop filling sound
+            AudioManager.audioManagerInstance.PotionMeterFillingSoundOff();
+            // Cheer sound
+            AudioManager.audioManagerInstance.CheerSoundPlay();
         }
-        else
+        else if(potionMeterFillImage.fillAmount < meterFillAmount)
         {
             potionMeterFillImage.fillAmount += Time.deltaTime * 0.5f;
         }
@@ -503,16 +591,43 @@ public class GameManager : MonoBehaviour
         if(potionMeterFillImage.fillAmount >= 0.3f)
         {
             potionChallengeImage1.color = Color.white;
+
+            // Play challenge completed sound
+            if (challenge1completed == true)
+            {
+                challenge1completed = false;
+
+                // Filling sound starts
+                AudioManager.audioManagerInstance.PlayChallengeCompletedSound();
+            }
         }
 
         if (potionMeterFillImage.fillAmount >= 0.6f)
         {
             potionChallengeImage2.color = Color.white;
+
+            // Play challenge completed sound
+            if (challenge2completed == true)
+            {
+                challenge2completed = false;
+
+                // Filling sound starts
+                AudioManager.audioManagerInstance.PlayChallengeCompletedSound();
+            }
         }
 
         if (potionMeterFillImage.fillAmount >= 1f)
         {
             potionChallengeImage3.color = Color.white;
+
+            // Play challenge completed sound
+            if (challenge3completed == true)
+            {
+                challenge3completed = false;
+
+                // Filling sound starts
+                AudioManager.audioManagerInstance.PlayChallengeCompletedSound();
+            }
         }
     }
 
