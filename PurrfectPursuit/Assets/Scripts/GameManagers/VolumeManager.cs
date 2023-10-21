@@ -10,6 +10,7 @@ public class VolumeManager : MonoBehaviour
     [SerializeField] Slider masterVolSlider;
     [SerializeField] Slider musicVolSlider;
     [SerializeField] Slider sfxVolSlider;
+    [SerializeField] Slider voicefxVolSlider;
 
     private void Start()
     {
@@ -39,6 +40,15 @@ public class VolumeManager : MonoBehaviour
         else
         {
             SetSFXVolumeValue();
+        }
+
+        if (PlayerPrefs.HasKey(Prefs.VoiceFXVolume))
+        {
+            LoadVoiceFXVolume();
+        }
+        else
+        {
+            SetVoiceFXVolumeValue();
         }
     }
 
@@ -83,6 +93,21 @@ public class VolumeManager : MonoBehaviour
     public void LoadSFXVolume()
     {
         sfxVolSlider.value = PlayerPrefs.GetFloat(Prefs.SFXVolume);
+
+        SetSFXVolumeValue();
+    }
+
+    public void SetVoiceFXVolumeValue()
+    {
+        float volume = sfxVolSlider.value;
+
+        mixerMaster.SetFloat("voicefxVol", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat(Prefs.VoiceFXVolume, volume);
+    }
+
+    public void LoadVoiceFXVolume()
+    {
+        sfxVolSlider.value = PlayerPrefs.GetFloat(Prefs.VoiceFXVolume);
 
         SetSFXVolumeValue();
     }

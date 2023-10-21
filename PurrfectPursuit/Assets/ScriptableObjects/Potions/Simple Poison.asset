@@ -19,4 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 27ad8d59f4cab5a4497255de39948fef, type: 2}
   potionTime: 20
   potionPointsValue: 8
-  potionSprite: {fileID: 21300000, guid: 8612aca23edcd5c43a9f75676bec4bd2, type: 3}
+  potionSprite: {fileID: 21300000, guid: f9a0193a3399f56478d8df84160e803f, type: 3}

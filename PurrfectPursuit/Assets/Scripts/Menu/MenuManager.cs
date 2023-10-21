@@ -29,6 +29,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] TMP_Dropdown resolutionsDropdown;
     Resolution[] resolutions;
 
+    [Space(10)]
+    [SerializeField] GameObject areYouSureBox;
+
 
     [Header("Level Manager")]
     [SerializeField] GameObject levelSelectObj;
@@ -218,6 +221,17 @@ public class MenuManager : MonoBehaviour
     }
 
 
+    // SOUND
+    public void MainMenuButtonHoverSound()
+    {
+        // This method exists because when Level Selector is open they shouldnt make hover sound
+        if (atLevelSelect == false && canPressMainMenuButtons)
+        {
+            AudioManagerMenu.audioManagerinstance.ButtonHoverSound();
+        }
+    }
+
+
     // OPTIONS MENU -------
 
     // Fullscreen
@@ -323,5 +337,32 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetInt(Prefs.ResolutionHeight, resolution.height);
 
         PlayerPrefs.Save();
+    }
+
+
+    // Reset Progress
+    public void ResetProgressButton()
+    {
+        // Make are you sure box appear
+        areYouSureBox.SetActive(true);
+    }
+
+    public void NoDontResetButton() 
+    {
+        // Make are you sure box disappear
+        areYouSureBox.SetActive(false);
+    }
+
+    public void YesResetButton()
+    {
+        // reset progress and make are you sure box dissapear
+        // demo progress reset
+        PlayerPrefs.SetInt(Prefs.DemoProgress, 0);
+        PlayerPrefs.SetInt(Prefs.DemoHighScore, 0);
+        PlayerPrefs.Save();
+
+        areYouSureBox.SetActive(false);
+
+        // Make delete progress sound
     }
 }

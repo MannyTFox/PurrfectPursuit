@@ -39,14 +39,18 @@ public class CatAnimationScript : MonoBehaviour
             {
                 AudioManager.audioManagerInstance.CatWalkLoopBoolLever(true);
                 StartCoroutine(AudioManager.audioManagerInstance.CatWalkSoundLoop());
-                print("making step sounds!");
+
+                // Debug
+                //print("making step sounds!");
             }
         }
         else
         {
             // Stop cat step loop
             AudioManager.audioManagerInstance.CatWalkLoopBoolLever(false);
-            print("Stop sounds!");
+
+            // Debug
+            //print("Stop sounds!");
         }
     }
 }
