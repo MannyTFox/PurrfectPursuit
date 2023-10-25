@@ -99,7 +99,7 @@ public class VolumeManager : MonoBehaviour
 
     public void SetVoiceFXVolumeValue()
     {
-        float volume = sfxVolSlider.value;
+        float volume = voicefxVolSlider.value;
 
         mixerMaster.SetFloat("voicefxVol", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat(Prefs.VoiceFXVolume, volume);
@@ -107,7 +107,7 @@ public class VolumeManager : MonoBehaviour
 
     public void LoadVoiceFXVolume()
     {
-        sfxVolSlider.value = PlayerPrefs.GetFloat(Prefs.VoiceFXVolume);
+        voicefxVolSlider.value = PlayerPrefs.GetFloat(Prefs.VoiceFXVolume);
 
         SetSFXVolumeValue();
     }

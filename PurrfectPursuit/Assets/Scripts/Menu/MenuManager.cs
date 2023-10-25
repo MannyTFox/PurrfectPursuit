@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager menuManagerInstance;
 
-    bool canPressMainMenuButtons = false;
+    bool canPressMainMenuButtons = true;
     bool atMainMenu = true;
     bool atOptions = false;
 
@@ -106,6 +106,7 @@ public class MenuManager : MonoBehaviour
         #endregion
 
         #region Checking mouse Pos
+        /*
         bool MouseXPosCheck = false;
         bool MouseYPosCheck = false;
 
@@ -134,8 +135,9 @@ public class MenuManager : MonoBehaviour
         else
         {
             canPressMainMenuButtons = false;
-        }
+        }*/
         #endregion
+        
     }
 
     public void CallMenuMethod(string methodID)
@@ -177,6 +179,7 @@ public class MenuManager : MonoBehaviour
     public void Play()
     {
         atLevelSelect = true;
+        canPressMainMenuButtons = false;
 
         levelSelectObj.SetActive(true);
     }
@@ -184,6 +187,7 @@ public class MenuManager : MonoBehaviour
     public void ExitLevelSelect()
     {
         atLevelSelect = false;
+        canPressMainMenuButtons = true;
 
         levelSelectObj.SetActive(false);
     }
@@ -192,6 +196,7 @@ public class MenuManager : MonoBehaviour
     public void Options()
     {
         atMainMenu = false;
+        canPressMainMenuButtons = false;
 
         mainCamAnimator.SetTrigger("toOptions");
     }
@@ -209,6 +214,7 @@ public class MenuManager : MonoBehaviour
     public void GoBackToMainMenu()
     {
         atOptions = false;
+        canPressMainMenuButtons = true;
 
         mainCamAnimator.SetTrigger("toMainMenu");
     }
